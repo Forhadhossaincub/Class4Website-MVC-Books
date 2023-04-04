@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Class4Website.Models.Book>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>This is Books controller View()</h2>
+
+<div  class="row">
+
+    <div class="col">
+
+        <h3>Books</h3>
+        
+
+        <div class="d-flex justify-content-end mb-1">
+            @*@Html.ActionLink("<i class='bi bi-plus'></i> Create", "Create", "Books", new {}, new {@class="btn btn-primary btn-sm"})
+            @Html.ActionLink("Create", "Create", "Books", new {}, new {@class="btn btn-primary btn-sm"})*@
+
+           <a class="btn btn-primary btn-sm rounded-circle " href="@Url.Action("Create","Books")"><i class="bi bi-plus"></i></a>
+
+        </div>
+
+        <table class="table table-bordered">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>@Html.DisplayNameFor(x => x.Title) </th>
+                    <th>@Html.DisplayNameFor(x => x.Genre) </th>
+                    <th>@Html.DisplayNameFor(x => x.CoverPrice) </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var b in Model)
+            {
+                    <tr>
+                        <td>@Html.DisplayFor( x => b.Title)</td>
+                        <td>@Html.DisplayFor( x => b.Genre)</td>
+                        <td>@Html.DisplayFor( x => b.CoverPrice)</td>
+                    </tr>
+            }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+@section styles{
+    
+    <link href="~/Content/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+    }
